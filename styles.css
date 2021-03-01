@@ -1,0 +1,44 @@
+body {
+  margin-left: 20px;
+}
+
+span {
+  margin: 10px;
+  font-size: 2em;
+}
+
+.correct {
+  animation-name: correct;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+
+}
+
+.too-low {
+  animation-name: low;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.too-high {
+  animation-name: high;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes low {
+  100% {color: blue; font-size: 1em;;}
+}
+
+@keyframes high {
+  100% {color: red; font-size: 3em;;}
+}
+
+@keyframes correct {
+  0% {color:greenyellow; font-size: 1em;}
+  50% {color: rgb(84, 188, 141); font-size: 3em;;}
+  100% {color: green; font-size: 2em;;}
+
+}
