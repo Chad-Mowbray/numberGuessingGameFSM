@@ -16,14 +16,14 @@ class FsmGuessingGame {
       }
     },
     GUESS: (userGuess) => {
-      let answer = this.checkGuess(userGuess)
-      if(answer === "correct") {
+      userGuess = parseInt(userGuess)
+      if(userGuess === this.numberToGuess) {
         this.progress("CORRECT")
         this.dispatch(userGuess)
-      } else if(answer === "high") {
+      } else if(userGuess > this.numberToGuess) {
         this.progress("HIGH")
         this.dispatch(userGuess)
-      } else if(answer === "low") {
+      } else if(userGuess < this.numberToGuess) {
         this.progress("LOW")
         this.dispatch(userGuess)
       } 
@@ -52,18 +52,6 @@ class FsmGuessingGame {
   progress(newState) {
     console.log("progress: ", newState)
     this.currentState = newState
-  }
-
-  checkGuess(newGuess) {
-    console.log("checkGuess: ", newGuess)
-    newGuess = parseInt(newGuess)
-    if(newGuess === this.numberToGuess) {
-      return 'correct'
-    } else if(newGuess > this.numberToGuess) {
-      return 'high'
-    } else if (newGuess < this.numberToGuess) {
-      return 'low'
-    }
   }
 
   listenForSubmit = (e) => {
